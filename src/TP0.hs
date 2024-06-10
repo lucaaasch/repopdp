@@ -11,3 +11,11 @@ data Autor = Autor{
     obras :: [Obra]
 } deriving (Show,Eq)
 
+obraA :: Obra
+obraA = Obra {texto = "Había una vez un pato.", año = 1997}
+
+obraB :: Obra
+obraB = Obra {texto = "¡Había una vez un pato!", año = 1996}
+
+unAutor :: Autor
+unAutor = Autor {nombre = "Pato", obras = [obraA, obraB]}
