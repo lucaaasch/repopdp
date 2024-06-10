@@ -19,3 +19,6 @@ obraB = Obra {texto = "¡Había una vez un pato!", año = 1996}
 
 unAutor :: Autor
 unAutor = Autor {nombre = "Pato", obras = [obraA, obraB]}
+
+otroAutor :: Autor
+otroAutor = Autor {nombre = "OtroXD", obras = [obraA]}
