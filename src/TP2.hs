@@ -18,11 +18,11 @@ fichaDerecha = snd
 
 -----------------------------------------------------------------------
 
-invertir :: Ficha -> Ficha
-invertir ficha = Ficha {izquierdo = derecho ficha, derecho = izquierdo ficha}
+invertirFicha :: Ficha -> Ficha
+invertirFicha ficha = Ficha {izquierdo = derecho ficha, derecho = izquierdo ficha}
 
 esLaMismaFicha :: Ficha -> Ficha -> Bool
-esLaMismaFicha fichaUno fichaDos = fichaUno == fichaDos || fichaUno == invertir fichaDos
+esLaMismaFicha fichaUno fichaDos = fichaUno == fichaDos || fichaUno == invertirFicha fichaDos
 
 -- Abstracciones de la función jugarRonda ---------------------------------------------------------------------
 
@@ -43,13 +43,13 @@ conectarConTablero ficha tablero
   | seConectanPorIzquierda ficha (fichaIzquierda tablero) = (ficha,fichaDerecha tablero)
 
 -- En caso de que se conecten por izquierda con necesidad de invertir la ficha
-  | seConectanPorIzquierda (invertir ficha) (fichaIzquierda tablero) = (invertir ficha,fichaDerecha tablero)
+  | seConectanPorIzquierda (invertirFicha ficha) (fichaIzquierda tablero) = (invertirFicha ficha,fichaDerecha tablero)
 
 -- En caso de que se conecten por derecha sin necesidad de invertir la ficha
   | seConectanPorDerecha ficha (fichaDerecha tablero) = (fichaIzquierda tablero,ficha)
 
 -- En caso de que se conecten por derecha con necesidad de invertir la ficha
-  | seConectanPorDerecha (invertir ficha) (fichaDerecha tablero) = (fichaIzquierda tablero, invertir ficha)
+  | seConectanPorDerecha (invertirFicha ficha) (fichaDerecha tablero) = (fichaIzquierda tablero, invertirFicha ficha)
 
 -- Si no se conectan, el tablero queda como estaba
   | otherwise = tablero

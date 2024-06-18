@@ -64,7 +64,7 @@ naveFuturista _ _ = 0
 
 --4a
 viajeGrupal :: Nave -> Planeta -> [Astronauta] -> [Astronauta]
-viajeGrupal nave destino astronautas = map (viaje nave destino) astronautas
+viajeGrupal nave destino = map (viaje nave destino) 
 
 rescatar :: Nave -> [Astronauta] -> Astronauta -> [Astronauta]
 rescatar nave rescatistas varado = (viajeGrupal nave origen . levantar (pasarTiempo tiempoDestino varado) . viajeGrupal nave destino) rescatistas

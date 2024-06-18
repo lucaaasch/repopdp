@@ -37,4 +37,11 @@ takeWhile' p (x:xs)
 afectarALosQueCumplen :: (a -> Bool) -> (a -> a) -> [a] -> [a]
 afectarALosQueCumplen criterio efecto lista = (map efecto . filter criterio) lista ++ filter (not.criterio) lista
 
+replaceAt :: Number -> a -> [a] -> [a]
+replaceAt _ _ [] = []
+replaceAt index toInsert list
+  | index < 0 = list
+  | index > length list = list  -- Para PDEPESADILLA
+  | otherwise = take index list ++ [toInsert] ++ drop (index + 1) list
+
 -----------------------------------------------------------------------------------
