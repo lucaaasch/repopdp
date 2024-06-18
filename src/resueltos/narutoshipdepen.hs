@@ -141,7 +141,7 @@ granGuerraNinja = Mision {
 infinitosZetsus :: [Ninja]
 infinitosZetsus = map zetsu [1..]
 
-zetsu :: Int -> Ninja
+zetsu :: Number -> Ninja
 zetsu unNumero = Ninja {
   nombre       = "Zetsu " ++ show unNumero,
   rango        = 600,
